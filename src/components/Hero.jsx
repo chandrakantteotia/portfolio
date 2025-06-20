@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "./../firebase"; // adjust path if needed
+import { db } from "./../firebase"; 
 import { FaSpinner } from "react-icons/fa"; // Import spinner icon
 
 const Hero = () => {
