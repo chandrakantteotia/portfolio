@@ -68,13 +68,12 @@ function UserLayout() {
     <>
       <Header />
       <div className="min-h-screen">
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Project />} />
-          <Route path="/credentials" element={<Credentials />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        {/* All sections on one page */}
+        <Hero />
+        <About />
+        <Project />
+        <Credentials />
+        <Contact />
 
         {/* Optional: show active users count from backend */}
         {activeUsers !== null && (

@@ -7,12 +7,19 @@ const Header = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Scroll to section helper
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <header className="bg-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-blue-700">
-          My Portfolio
-        </Link>
+        <a href="#hero" className="text-xl font-bold text-blue-700" onClick={() => scrollToSection("hero")}>My Portfolio</a>
 
         {/* Animated Hamburger Button */}
         <button
@@ -37,46 +44,11 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-6 items-center">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-800"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-800"
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-800"
-            }
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to="/credentials"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-800"
-            }
-          >
-            Credentials
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-800"
-            }
-          >
-            Contact
-          </NavLink>
+          <a href="#hero" className="text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("hero")}>Home</a>
+          <a href="#about" className="text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("about")}>About</a>
+          <a href="#projects" className="text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("projects")}>Projects</a>
+          <a href="#credentials" className="text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("credentials")}>Credentials</a>
+          <a href="#contact" className="text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("contact")}>Contact</a>
         </nav>
       </div>
 
@@ -87,61 +59,11 @@ const Header = () => {
         } overflow-hidden`}
       >
         <div className="bg-white shadow-md px-4 py-4 space-y-3">
-          <NavLink
-            to="/"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "block text-blue-600 font-semibold"
-                : "block text-gray-800"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "block text-blue-600 font-semibold"
-                : "block text-gray-800"
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/projects"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "block text-blue-600 font-semibold"
-                : "block text-gray-800"
-            }
-          >
-            Projects
-          </NavLink>
-           <NavLink
-            to="/credentials"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "block text-blue-600 font-semibold"
-                : "block text-gray-800"
-            }
-          >
-            Credentials
-          </NavLink>
-          <NavLink
-            to="/contact"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "block text-blue-600 font-semibold"
-                : "block text-gray-800"
-            }
-          >
-            Contact
-          </NavLink>
+          <a href="#hero" className="block text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("hero")}>Home</a>
+          <a href="#about" className="block text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("about")}>About</a>
+          <a href="#projects" className="block text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("projects")}>Projects</a>
+          <a href="#credentials" className="block text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("credentials")}>Credentials</a>
+          <a href="#contact" className="block text-gray-800 hover:text-blue-600 font-semibold" onClick={() => scrollToSection("contact")}>Contact</a>
         </div>
       </div>
     </header>

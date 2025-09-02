@@ -78,7 +78,7 @@ const About = () => {
   };
 
   return (
-    <section className="min-h-screen px-6 py-17 bg-white flex flex-col items-center justify-center">
+    <section id="about" className="min-h-screen px-6 py-17 bg-white flex flex-col items-center justify-center">
       {loading ? (
         // Use your MiniSpinner here instead of FaSpinner
         <MiniSpinner />

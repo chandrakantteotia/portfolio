@@ -62,7 +62,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 text-[#0f172a] px-6 py-20 sm:px-10 md:px-24 lg:px-32 font-sans">
+    <section id="contact" className="min-h-screen bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 text-[#0f172a] px-6 py-20 sm:px-10 md:px-24 lg:px-32 font-sans">
       <ToastContainer position="top-right" autoClose={3000} />
       
       <motion.div

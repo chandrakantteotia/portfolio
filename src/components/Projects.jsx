@@ -48,8 +48,8 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  return (
-    <section className="min-h-screen bg-[#f3f4f6] text-[#111827] px-6 py-16 sm:px-10 md:px-20 lg:px-32">
+    return (
+      <section id="projects" className="min-h-screen bg-[#f3f4f6] text-[#111827] px-6 py-16 sm:px-10 md:px-20 lg:px-32">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

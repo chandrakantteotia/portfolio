@@ -123,7 +123,7 @@ const Credentials = () => {
   }
 
   return (
-    <div className="p-6 max-w-7xl mx-auto bg-gray-50">
+    <section id="credentials" className="p-6 max-w-7xl mx-auto bg-gray-50">
       <audio ref={audioRef} src="./components/admin/audio/notification.mp3" preload="auto" />
 
       {/* Skills Section */}
@@ -240,7 +240,7 @@ const Credentials = () => {
           })}
         </motion.div>
       </motion.section>
-    </div>
+  </section>
   );
 };
 

@@ -6,6 +6,13 @@ import { db } from "./../firebase";
 import { FaSpinner } from "react-icons/fa"; // Import spinner icon
 
 const Hero = () => {
+  // Scroll to section helper
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const [homeImage, setHomeImage] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
 
@@ -31,7 +38,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-[90vh] md:min-h-[105vh] flex items-center justify-center bg-gradient-to-br from-blue-50 to-white px-4 sm:px-6 pt-12 sm:pt-0 relative overflow-hidden">
+    <section id="hero" className="min-h-[90vh] md:min-h-[105vh] flex items-center justify-center bg-gradient-to-br from-blue-50 to-white px-4 sm:px-6 pt-12 sm:pt-0 relative overflow-hidden">
       {/* Background Blur */}
       <div className="absolute inset-0 blur-sm sm:blur-none z-0 bg-white/20"></div>
 
@@ -114,18 +121,20 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Link
-                to="/projects"
+              <button
+                type="button"
                 className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+                onClick={() => scrollToSection("projects")}
               >
                 View Projects
-              </Link>
-              <Link
-                to="/contact"
+              </button>
+              <button
+                type="button"
                 className="border border-blue-600 text-blue-600 px-6 py-3 rounded hover:bg-blue-50 transition"
+                onClick={() => scrollToSection("contact")}
               >
                 Contact Me
-              </Link>
+              </button>
             </motion.div>
           </>
         )}
