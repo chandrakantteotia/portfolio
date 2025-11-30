@@ -1,9 +1,9 @@
-name: Portfolio CI   # generic & safe name
+name: Portfolio CI
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # Daily 06:00 UTC (India ~11:30 AM)
-  workflow_dispatch:      # Manual run allowed
+    - cron: '0 */3 * * *'   # Runs every 3 hours
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Pick random commit message
+        run: |
+          COMMIT_MESSAGE=$(shuf -n 1 syslog.txt)
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
       - name: Update README.md
         run: |
@@ -28,7 +33,7 @@ jobs:
       - name: Commit changes
         run: |
           git add README.md
-          git commit -m "Update via CI" || echo "No changes to commit"
+          git commit -m "${{ env.COMMIT_MESSAGE }} - $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
 
       - name: Push changes
         run: |
