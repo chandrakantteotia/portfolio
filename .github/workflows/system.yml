@@ -1,0 +1,35 @@
+name: Portfolio CI   # generic & safe name
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # Daily 06:00 UTC (India ~11:30 AM)
+  workflow_dispatch:      # Manual run allowed
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update README.md
+        run: |
+          echo "### ⏱ Last Updated: $(date '+%Y-%m-%d %H:%M:%S')" > temp.md
+          echo "" >> temp.md
+          cat README.md >> temp.md
+          mv temp.md README.md
+
+      - name: Configure git
+        run: |
+          git config user.name "chandrakantteotia"
+          git config user.email "chandrakantteotia@gmail.com"
+
+      - name: Commit changes
+        run: |
+          git add README.md
+          git commit -m "Update via CI" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push
